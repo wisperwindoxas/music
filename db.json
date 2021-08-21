@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "firstName": "Windoxas",
+      "password": "3434",
+      "confirmPassword": "3434",
+      "id": 1
+    }
+  ]
+}
