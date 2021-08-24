@@ -112,6 +112,7 @@ body{
     margin: 10px 0; 
     height: 4px;
     width: 100%;
+    position: relative;
 }
 
 
@@ -119,8 +120,16 @@ body{
     background-color:#fe8daa;
     border-radius: 5px;
     height: 100%;
+   
     
     transform: width 0.1s linear;
+}
+
+
+.progress span{
+    position: absolute;
+    right: 10px;
+    top: 8px;
 }
 @keyframes rotate {
     from {

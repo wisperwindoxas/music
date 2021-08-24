@@ -8,7 +8,7 @@ const progressContainer = document.querySelector('.progress-container');
 const title = document.querySelector('#title');
 const cover = document.querySelector('#cover');
 
-const songs = [ "lilly-wood", "Shohruhxon-Parizod", "Ajab sirlar"]
+const songs = [ "lilly-wood", "Shohruhxon-Parizod", "Ajab sirlar","turpal_abdulkerimov","Raksana"]
 
 let songIndex = 0;
 
@@ -18,6 +18,8 @@ function loadSong(song){
     title.innerHTML = song
     audio.src = `music/${song}.mp3`
     cover.src = `images/${song}.jpg`
+
+
 }
 
 
@@ -61,10 +63,17 @@ function nextSong(){
 }
 
 
+
+
 function updateProgress(e){
     const {duration, currentTime} = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`
+    audio.onloadeddata = function(){
+        let ds = parseInt(audio.duration % 60)
+        let dm = parseInt((audio.duration / 60) % 60)
+        document.querySelector('.progress span').innerHTML = `${ds}:${dm}`
+    }
 }
 
 
@@ -74,7 +83,12 @@ function setProgress(e){
     const duration = audio.duration
 
     audio.currentTime = (clickX / width) * duration;
+
 }
+
+
+
+
 
 playBtn.addEventListener('click', () =>{
     const isPlaying = musicContainer.classList.contains('play')
