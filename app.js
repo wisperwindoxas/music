@@ -72,7 +72,7 @@ function updateProgress(e){
     audio.onloadeddata = function(){
         let ds = parseInt(audio.duration % 60)
         let dm = parseInt((audio.duration / 60) % 60)
-        document.querySelector('.progress span').innerHTML = `${ds}:${dm}`
+        document.querySelector('.progress span').innerHTML = `${dm}:${ds}`
     }
 }
 
