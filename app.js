@@ -38,38 +38,38 @@ function pauseSong(){
 }
 
 
-function prevSong(){
+async function prevSong(){
     songIndex--;
 
     if(songIndex < 0){
         songIndex = songs.length - 1;
     }
 
-    loadSong(songs[songIndex]);
-    playSong()
+   await loadSong(songs[songIndex]);
+   await playSong()
 
 }
 
-function nextSong(){
+async function nextSong(){
     songIndex++;
 
     if(songIndex > songs.length -1){
         songIndex = 0;
     }
 
-    loadSong(songs[songIndex]);
-    playSong()
+   await loadSong(songs[songIndex]);
+   await playSong()
 
 }
 
 
 
 
-function updateProgress(e){
+async function updateProgress(e){
     const {duration, currentTime} = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`
-    audio.onloadeddata = function(){
+    await audio.onloadeddata = function(){
         let sec = parseInt(audio.duration % 60)
         let min = parseInt((audio.duration / 60) % 60)
         document.querySelector('.progress span').innerHTML = `${min}:${sec}`
