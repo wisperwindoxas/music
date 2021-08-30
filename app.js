@@ -70,9 +70,9 @@ function updateProgress(e){
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`
     audio.onloadeddata = function(){
-        let ds = parseInt(audio.duration % 60)
-        let dm = parseInt((audio.duration / 60) % 60)
-        document.querySelector('.progress span').innerHTML = `${dm}:${ds}`
+        let sec = parseInt(audio.duration % 60)
+        let min = parseInt((audio.duration / 60) % 60)
+        document.querySelector('.progress span').innerHTML = `${min}:${sec}`
     }
 }
 
