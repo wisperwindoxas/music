@@ -69,7 +69,7 @@ async function updateProgress(e){
     const {duration, currentTime} = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`
-    await audio.onloadeddata = function(){
+    audio.onloadeddata = await function(){
         let sec = parseInt(audio.duration % 60)
         let min = parseInt((audio.duration / 60) % 60)
         document.querySelector('.progress span').innerHTML = `${min}:${sec}`
